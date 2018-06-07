@@ -42,7 +42,6 @@ services:
       MONGO_DATABASE: ${MONGO_INITDB_DATABASE}
       MONGO_USER: ${MONGO_USER}
       MONGO_PASSWORD: ${MONGO_PASSWORD}
-
     command: --keyFile /data/mongodb-keyfile --replSet ${MONGO_REPL_SET_NAME}
 
   mongodb-repl-set-init:
