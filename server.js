@@ -10,8 +10,10 @@ const mongoPort = process.env.MONGO_PORT || '27017';
 const mongoDBName = process.env.MONGO_DATABASE;
 const mongoUser = process.env.MONGO_USER;
 const mongoPassword = process.env.MONGO_PASSWORD;
+const mongoReplSetName = process.env.MONGO_REPL_SET_NAME;
 
-const mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}`;
+const mongoReplSetOption = mongoReplSetName ? `?replicaSet=${mongoReplSetName}` : "";
+const mongoURL = `mongodb://${mongoUser}:${mongoPassword}@${mongoHost}:${mongoPort}/${mongoDBName}${mongoReplSetOption}`;
 let mongoDB = null;
 
 app.use(bodyParser.json());
